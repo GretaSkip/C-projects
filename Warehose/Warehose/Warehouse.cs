@@ -21,9 +21,9 @@ namespace WarehouseApplication
             Console.WriteLine(String.Join(",", Items));
         }
 
-        public void Remove(string item)
+        public void Remove(string itemName)
         {
-            Items.Remove(item);
+            Items.Remove(itemName);
         }
     }
 }

@@ -29,11 +29,10 @@ namespace Warehose
                     warehouse.List();
                 }
 
-                if (command == "Remove")
+                if (command.StartsWith("Del"))
                 {
-                    var 
-  
-                    warehouse.Remove();
+                    var itemToAdd = command.Split(" ")[1];
+                    warehouse.Remove(itemToAdd);
                 }
                
                 Console.WriteLine("Type 'Exit' if you want to exit");
