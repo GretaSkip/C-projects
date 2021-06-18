@@ -15,7 +15,6 @@ namespace Warehose
 
             while (command != "Exit")
             {
-                Console.WriteLine("Type Add to add Item");
 
                 if (command.StartsWith("Add"))
                 {
@@ -29,13 +28,12 @@ namespace Warehose
                     warehouse.List();
                 }
 
-                if (command.StartsWith("Del"))
+                if (command.StartsWith("Remove"))
                 {
-                    var itemToAdd = command.Split(" ")[1];
-                    warehouse.Remove(itemToAdd);
+                    var itemToRemove = command.Split(" ")[1];
+                    warehouse.Remove(itemToRemove);
                 }
-               
-                Console.WriteLine("Type 'Exit' if you want to exit");
+                  
                 command = Console.ReadLine();
             }
 

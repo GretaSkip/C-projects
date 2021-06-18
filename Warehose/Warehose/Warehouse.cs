@@ -25,5 +25,11 @@ namespace WarehouseApplication
         {
             Items.Remove(itemName);
         }
+
+
+        public void AddRange(string[] itemsNames)
+        {
+            Items.AddRange(itemsNames);
+        }
     }
 }

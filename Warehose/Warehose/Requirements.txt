@@ -5,6 +5,10 @@
 	 just be a string
 	 List -> Prints all items
 
+	 Optional:
+	 Remove Item when items doesnt not exist instead of delete
+	 'AddRange' where you can specify number of items
+
 
 2. Program should not terminate until 'Exit' is written
 
