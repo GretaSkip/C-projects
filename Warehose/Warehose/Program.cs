@@ -33,7 +33,9 @@ namespace Warehose
                     var itemToRemove = command.Split(" ")[1];
                     warehouse.Remove(itemToRemove);
                 }
-                  
+
+                
+
                 command = Console.ReadLine();
             }
 

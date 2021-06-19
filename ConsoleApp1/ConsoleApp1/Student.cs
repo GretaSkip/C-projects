@@ -13,12 +13,10 @@ namespace ConsoleApp1
         int age;
         int[] grades;
 
-
         public Student()
         {
 
         }
-
         public Student(string name, string surname, int age, int[] grades)
         {
             this.name = name;
@@ -27,24 +25,67 @@ namespace ConsoleApp1
             this.grades = grades;
         }
 
-        public string GetName(string name)
+        public string GetName()
         {
             return this.name;
         }
-
-        public string GetSurname(string surname)
+        public string GetSurname()
         {
             return this.surname;
         }
-
-        public void GetAge(int age)
+        public int GetAge()
         {
             return this.age;
         }
-
-        public void GetGrades(int age)
+        public int[] GetGrades()
         {
-            return this.age;
+            return this.grades;
         }
+
+
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+        public void SetSurname(string surname)
+        {
+            this.surname = surname;
+        }
+        public void SetAge(int age)
+        {
+            this.age = age;
+        }
+        public void SetGrades(int[] grades)
+        {
+            this.grades = grades;
+        }
+
+        public double avg()
+        {
+            if (this.grades.Length == 0)
+            {
+                return 0.0;
+            }
+            int sum = 0;
+            for (int i = 0; i < this.grades.Length; i++)
+            {
+                sum += this.grades[i];
+            }
+
+            return (double)sum / this.grades.Length;
+        }
+
+        public override string ToString()
+        {
+            string student = "name " + this.name + " surname " + this.surname + " age " + this.age + " marks:";
+
+            for (int i = 0; i < this.grades.Length; i++)
+            {
+                student += this.grades[i] + ", ";
+            }
+            return student + " average - " + this.avg();
+        }
+
+
     }
 }
