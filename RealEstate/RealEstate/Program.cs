@@ -17,14 +17,20 @@ namespace RealEstateApp
             realEstateFlats.Add(new RealEstate("flat", 10000000, 100.8, "Kaunas"));
             realEstateFlats.Add(new RealEstate("house", 8900000, 47.8, "Vilnius"));
             realEstateFlats.Add(new RealEstate("house", 8900000, 45.7, "Vilnius"));
+            realEstateFlats.Add(new RealEstate("house", 10000, 32.6, "Mazeikiai"));
 
-            for (int i = 0; i < realEstateFlats.Count; i++)
+            //for (int i = 0; i < realEstateFlats.Count; i++)
+            //{
+            //    Console.WriteLine(realEstateFlats[i]);
+            //}
+
+
+            List<RealEstate> SortedList = realEstateFlats.OrderBy(o => o.GetCity()).ThenBy(o => o.sqMPrice()).ToList();
+
+            for (int i = 0; i < SortedList.Count; i++)
             {
-                Console.WriteLine(realEstateFlats[i]);
+                Console.WriteLine(SortedList[i]);
             }
-
-
-            List<RealEstate> SortedList = realEstateFlats.OrderBy(o => o.sqMPrice()).ToList();
         }
 
         
