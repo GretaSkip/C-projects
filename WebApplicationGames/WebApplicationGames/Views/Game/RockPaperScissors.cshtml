@@ -1,0 +1,18 @@
+﻿
+@model RockPaperScissorsModel
+
+@if (Model.Player != null)
+ {
+    <h2>@Model.Player</h2>
+ }
+
+@using (Html.BeginForm("RockPaperScissorsPlay", "Game", FormMethod.Post))
+{
+    <div class="container-full" style="background-color:white">
+        <div class="container">
+            @Html.LabelFor(x => x.Player)
+            @Html.TextBoxFor(x => x.Player)
+            <input class="btn btn-primary" type="submit" value="Play!" />
+        </div>
+    </div>
+}

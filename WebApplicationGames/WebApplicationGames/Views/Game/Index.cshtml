@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>What game do you wanna play?</h2>
+
+@using (Html.BeginForm("RockPaperScissors", "Game", FormMethod.Get))
+{
+    <div class="container-full" style="background-color:white">
+        <div class="container">
+            <input class="btn btn-primary" type="submit" value="Rock Paper Scissors" />
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("guessANumber", "Game", FormMethod.Get))
+{
+    <div class="container-full" style="background-color:white">
+        <div class="container">
+            <input class="btn btn-primary" type="submit" value="Guessing Games" />
+        </div>
+    </div>
+}
+
