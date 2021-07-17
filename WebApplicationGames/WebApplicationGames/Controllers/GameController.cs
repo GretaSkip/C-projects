@@ -21,59 +21,66 @@ namespace WebApplicationGames.Controllers
 
         public IActionResult RockPaperScissorsPlay(RockPaperScissorsModel model)
         {
-            Random rnd = new Random();
-            string[] options = { "Ro" };
-            model.Computer = options[rnd.Next(0, 3)];
-            model.Player = model.Player.ToLower();
-
-            switch (model.Computer)
+            if (!ModelState.IsValid)
             {
-                case "Rock":
-                    if(model.Player == "Rock")
-                    {
-                        model.Winner = "Tie";
-                    }
-                    if(model.Player == "Paper")
-                    {
-                        model.Winner = "Player";
-                    }
-                    if(model.Player == "Scissors")
-                    {
-                        model.Winner = "Computer";
-                    }
-                    break;
-
-                case "Paper":
-                    if (model.Player == "Paper")
-                    {
-                        model.Winner = "Tie";
-                    }
-                    if (model.Player == "Rock")
-                    {
-                        model.Winner = "Computer";
-                    }
-                    if (model.Player == "Scissors")
-                    {
-                        model.Winner = "Player";
-                    }
-                    break;
-
-                case "Scissors":
-                    if (model.Player == "Scissors")
-                    {
-                        model.Winner = "Tie";
-                    }
-                    if (model.Player == "Rock")
-                    {
-                        model.Winner = "Player";
-                    }
-                    if (model.Player == "Paper")
-                    {
-                        model.Winner = "Computer";
-                    }
-                    break;
+                return View("RockPaperScissors", model);
             }
-            return View("RockPaperScissors", model);
+
+            Random rnd = new Random();
+            string[] options = { "Rock", "Paper", "Scissors" };
+            model.Computer = options[rnd.Next(0, 3)];
+            model.Player = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(model.Player.ToLower());
+
+                switch (model.Computer)
+                {
+                    case "Rock":
+                        if (model.Player == "Rock")
+                        {
+                            model.Winner = "Tie";
+                        }
+                        if (model.Player == "Paper")
+                        {
+                            model.Winner = "Player";
+                        }
+                        if (model.Player == "Scissors")
+                        {
+                            model.Winner = "Computer";
+                        }
+                        break;
+
+                    case "Paper":
+                        if (model.Player == "Paper")
+                        {
+                            model.Winner = "Tie";
+                        }
+                        if (model.Player == "Rock")
+                        {
+                            model.Winner = "Computer";
+                        }
+                        if (model.Player == "Scissors")
+                        {
+                            model.Winner = "Player";
+                        }
+                        break;
+
+                    case "Scissors":
+                        if (model.Player == "Scissors")
+                        {
+                            model.Winner = "Tie";
+                        }
+                        if (model.Player == "Rock")
+                        {
+                            model.Winner = "Player";
+                        }
+                        if (model.Player == "Paper")
+                        {
+                            model.Winner = "Computer";
+                        }
+                        break;
+                }
+                return View("RockPaperScissors", model);
+
+            
         }
 
         public IActionResult guessANumber()

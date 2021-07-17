@@ -2,9 +2,27 @@
 @model RockPaperScissorsModel
 
 @if (Model.Player != null)
- {
-    <h2>@Model.Player</h2>
- }
+{
+    <h3>You Chose: @Model.Player</h3>
+    <h3>Computer Chose: @Model.Computer</h3>
+
+    if (Model.Winner == "Tie")
+    {
+        <h2>Game Result is @Model.Winner</h2>
+    }
+
+    if (Model.Winner == "Player")
+    {
+        <h2>Congrats You Win!</h2>
+    }
+
+    if (Model.Winner == "Computer")
+    {
+        <h2>You loose...</h2>
+    }
+
+
+}
 
 @using (Html.BeginForm("RockPaperScissorsPlay", "Game", FormMethod.Post))
 {
@@ -12,6 +30,7 @@
         <div class="container">
             @Html.LabelFor(x => x.Player)
             @Html.TextBoxFor(x => x.Player)
+            <p style="color:red">@Html.ValidationMessageFor(x => x.Player)</p>
             <input class="btn btn-primary" type="submit" value="Play!" />
         </div>
     </div>
