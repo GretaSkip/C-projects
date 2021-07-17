@@ -83,10 +83,49 @@ namespace WebApplicationGames.Controllers
             
         }
 
-        public IActionResult guessANumber()
+        public IActionResult GuessANumber()
         {
-            return View();
+            GuessANumberModel model = new GuessANumberModel();
+            return View(model);
+        }
+
+        public IActionResult GuessANumberPlay(GuessANumberModel model)
+        {
+            Random rnd = new Random();
+            int[] options = { 1,2,3,4,5,6,7,8,9,10 };
+            model.Computer = options[rnd.Next(0, 10)];
+
+            if (model.Player == model.Computer)
+            {
+                model.Winner = "Player";
+            }
+            if (model.Player > model.Computer || model.Player < model.Computer)
+            {
+                model.Winner = "Computer";
+            }
+
+            return View("GuessANumber", model);
+        }
+
+        public IActionResult GuessAWord()
+        {
+            GuessAWordModel model = new GuessAWordModel();
+            return View(model);
+        }
+
+        public IActionResult GuessAWordPlay(GuessAWordModel model)
+        {
+            Random rnd = new Random();
+            string[] options = { "Watermellon", "Calendar", "Database", "Festival", "Triangle" };
+            model.Computer = options[rnd.Next(0, 5)];
+            model.Player = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(model.Player.ToLower());
+            model.Hint = 
+
+
+            return View("GuessAWord", model);
         }
     }
+
+
 
 }

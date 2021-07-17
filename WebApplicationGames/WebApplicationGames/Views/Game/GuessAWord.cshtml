@@ -1,0 +1,31 @@
+﻿@model GuessAWordModel
+
+@if (Model.Player != null)
+{
+    <h3>Your Guess: @Model.Player</h3>
+    <h3>Correct Answer: @Model.Computer</h3>
+
+    if (Model.Winner == "Player")
+    {
+        <h2 style="color:darkblue">Congrats Your Guess is Correct!</h2>
+    }
+
+    if (Model.Winner == "Computer")
+    {
+        <h2 style="color:darkblue">Your Guess is incorrect...</h2>
+    }
+
+}
+
+@using (Html.BeginForm("GuessANumberPlay", "Game", FormMethod.Post))
+{
+    <div class="container-full" style="background-color:white">
+        <div class="container">
+            <p>Please enter guess from 1 to 10</p>
+            @Html.LabelFor(x => x.Player)
+            @Html.TextBoxFor(x => x.Player)
+            <p style="color:red">@Html.ValidationMessageFor(x => x.Player)</p>
+            <input class="btn btn-primary" type="submit" value="Guess!" />
+        </div>
+    </div>
+}

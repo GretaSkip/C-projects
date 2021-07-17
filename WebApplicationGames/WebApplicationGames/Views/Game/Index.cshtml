@@ -8,16 +8,26 @@
 {
     <div class="container-full" style="background-color:white">
         <div class="container">
-            <input class="btn btn-primary" type="submit" value="Rock Paper Scissors" />
+            <input class="btn btn-primary" style="margin-top:10px" type="submit" value="Rock Paper Scissors" />
         </div>
     </div>
 }
 
-@using (Html.BeginForm("guessANumber", "Game", FormMethod.Get))
+
+@using (Html.BeginForm("GuessANumber", "Game", FormMethod.Get))
 {
     <div class="container-full" style="background-color:white">
         <div class="container">
-            <input class="btn btn-primary" type="submit" value="Guessing Games" />
+            <input class="btn btn-primary" style="margin-top:10px" type="submit" value="Guess A Number" />
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("GuessAWord", "Game", FormMethod.Get))
+{
+    <div class="container-full" style="background-color:white">
+        <div class="container">
+            <input class="btn btn-primary" style="margin-top:10px" type="submit" value="Guess A Word" />
         </div>
     </div>
 }
