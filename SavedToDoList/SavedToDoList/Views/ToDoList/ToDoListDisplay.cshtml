@@ -1,0 +1,9 @@
+﻿@model List<ToDoListModel>
+
+<h1>Your To Do List:</h1>
+
+@foreach (ToDoListModel toDoListModel in @Model)
+{
+  <h3>Name:</h3> <p>@toDoListModel.Name</p> 
+  <h3>Description:</h3> <p>@toDoListModel.Description</p>
+}
